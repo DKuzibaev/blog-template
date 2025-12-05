@@ -1,17 +1,16 @@
-import TwitterIcon from '@/components/icons/TwitterIcon'
-import GithubIcon from '@/components/icons/GithubIcon'
+import VkIcon from '../components/icons/VkIcon.astro'
+import TelegramIcon from '../components/icons/TelegramIcon.astro'
 
-// ADD YOUR SOCIAL NETWORKS HERE
+// Массив социальных сетей
 export const SOCIALNETWORKS = [
 	{
-		name: 'Github',
-		url: 'https://github.com/danielcgilibert/blog-template',
-		icon: GithubIcon
+		name: 'VK',
+		url: 'https://vk.com/',
+		icon: VkIcon
 	},
-
 	{
-		name: 'Twitter',
-		url: 'https://github.com/danielcgilibert/blog-template',
-		icon: TwitterIcon
+		name: 'Telegram',
+		url: 'https://t.me/',
+		icon: TelegramIcon
 	}
 ] as const

@@ -2,14 +2,20 @@ import getReadingTime from 'reading-time'
 import { toString } from 'mdast-util-to-string'
 
 /**
- * Injects `minutesRead` into frontmatter processed by Remark.
+ * Injects `minutesRead` into frontmatter processed by Remark in Russian.
  */
 export function remarkReadingTime() {
 	return function (tree: unknown, { data }: any) {
 		const textOnPage = toString(tree)
 		const readingTime = getReadingTime(textOnPage)
-		// readingTime.text will give us minutes read as a friendly string,
-		// i.e. "3 min read"
-		data.astro.frontmatter.minutesRead = readingTime.text
+
+		// Берём число минут (округляем вверх)
+		const minutes = Math.ceil(readingTime.minutes)
+
+		// Формируем строку на русском
+		const minutesText = `${minutes} мин чтения`
+
+		// Сохраняем в frontmatter
+		data.astro.frontmatter.minutesRead = minutesText
 	}
 }
