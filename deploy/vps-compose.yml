@@ -1,0 +1,9 @@
+services:
+  blog:
+    image: ghcr.io/${GHCR_IMAGE:-dkuzibaev/news_blog_test}:${IMAGE_TAG:-latest}
+    restart: unless-stopped
+    environment:
+      SSL_CN: ${SSL_CN:-localhost}
+      SSL_IP: ${SSL_IP}
+    ports:
+      - "443:443"
